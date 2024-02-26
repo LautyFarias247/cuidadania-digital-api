@@ -3,8 +3,7 @@ import bodyParser from 'body-parser'
 import { PORT } from './lib/env';
 import morgan from 'morgan'
 
-import { clientsRouter,productsRouter,salesRouter } from './routes'
-import { configureDatabase } from './db';
+import { clientsRouter,modelsRouter,productsRouter,salesRouter } from './routes'
 
 const app = express()
 
@@ -28,6 +27,7 @@ const configureRoutes = () => {
 	app.use("/products",productsRouter)
 	app.use("/clients",clientsRouter)
 	app.use("/sales",salesRouter)
+	app.use("/models",modelsRouter)
 	app.use('*',(req,res) => {
 		res.status(404).send('Not found');
 	});
@@ -51,7 +51,6 @@ const createServer = async () => {
 		configureCrossOriginModule();
 		configureRoutes();
 		configureWebServer();
-		await configureDatabase()
 	} catch (error) {
 
 	}
