@@ -50,7 +50,7 @@ export const createSale = async (_: Request,res: Response) => {
 		return res.status(200).send("ok")
 
 	} catch (error) {
-		return res.status(400).send("error!")
+		return res.status(400).json(error)
 	}
 }
 
@@ -70,6 +70,6 @@ export const createSaleDetail = async (_: Request,res: Response) => {
 		return res.status(200).send("ok")
 
 	} catch (error) {
-		return res.status(400).send("error!")
+		return res.status(400).json(error)
 	}
 }
