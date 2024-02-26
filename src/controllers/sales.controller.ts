@@ -11,7 +11,7 @@ export const getSales = async (_: Request,res: Response) => {
 
 		const [estadosVentas] = await pool.query('SELECT estado, COUNT(*) AS total FROM Venta GROUP BY estado')
 
-		const [ventasTotales] = await pool.query('SELECT COUNT(*) AS conteo FROM venta')
+		const [ventasTotales] = await pool.query('SELECT COUNT(*) AS conteo FROM Venta')
 
 		return response(res,200,{ ventas,estadosVentas,ventasTotales })
 	} catch (error) {

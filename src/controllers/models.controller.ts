@@ -41,7 +41,7 @@ export const createSale = async (_: Request,res: Response) => {
 		id INT(9) NOT NULL AUTO_INCREMENT,
 		fecha DATETIME NOT NULL,
 		id_cliente INT(9),
-		monto_total DECIMAL(20,2),
+		monto_total REAL(20,2),
 		estado VARCHAR(20) CHECK (estado IN ('entregado', 'pagado', 'en proceso')),
 		PRIMARY KEY(id),
 		FOREIGN KEY (id_cliente) REFERENCES Cliente(id)
@@ -62,7 +62,7 @@ export const createSaleDetail = async (_: Request,res: Response) => {
 		id_venta INT(9),
 		id_producto INT(9),
 		cantidad INT(9),
-		precio_unitario DECIMAL(20,2),
+		precio_unitario REAL(20,2),
 		PRIMARY KEY(id),
 		FOREIGN KEY (id_venta) REFERENCES Venta(id),
 		FOREIGN KEY (id_producto) REFERENCES Producto(id)
