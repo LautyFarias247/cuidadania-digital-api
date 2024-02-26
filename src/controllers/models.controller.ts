@@ -74,18 +74,18 @@ export const createSaleDetail = async (_: Request,res: Response) => {
 	}
 }
 
-export const drop = async (_: Request,res: Response) => {
-	try {
-		await pool.query(`DROP TABLE DetalleVenta`)
+// export const drop = async (_: Request,res: Response) => {
+// 	try {
+// 		await pool.query(`DROP TABLE DetalleVenta`)
 
-		await pool.query(`DROP TABLE Venta`)
+// 		await pool.query(`DROP TABLE Venta`)
 
-		await pool.query(`DROP TABLE Producto`)
+// 		await pool.query(`DROP TABLE Producto`)
 
-		await pool.query(`DROP TABLE Cliente`)
-		return res.status(200).send("ok")
-	} catch (error) {
-		return res.status(400).json(error)
+// 		await pool.query(`DROP TABLE Cliente`)
+// 		return res.status(200).send("ok")
+// 	} catch (error) {
+// 		return res.status(400).json(error)
 
-	}
-}
+// 	}
+// }
