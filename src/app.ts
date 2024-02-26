@@ -4,6 +4,7 @@ import { PORT } from './lib/env';
 import morgan from 'morgan'
 
 import { clientsRouter,productsRouter,salesRouter } from './routes'
+import { configureDatabase } from './db';
 
 const app = express()
 
@@ -44,15 +45,17 @@ const configureWebServer = () => {
 	})
 }
 
-const createServer = () => {
+const createServer = async () => {
 	try {
 		configureBodyParser();
 		configureCrossOriginModule();
 		configureRoutes();
 		configureWebServer();
+		await configureDatabase()
 	} catch (error) {
-		console.error(error);
+
 	}
+
 
 	return app;
 };
