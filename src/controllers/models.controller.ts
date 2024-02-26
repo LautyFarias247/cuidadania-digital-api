@@ -76,6 +76,10 @@ export const createSaleDetail = async (_: Request,res: Response) => {
 
 export const drop = async (_: Request,res: Response) => {
 	try {
+		await pool.query(`DROP TABLE DetalleVenta`)
+
+		await pool.query(`DROP TABLE Venta`)
+
 		await pool.query(`DROP TABLE Producto`)
 
 		await pool.query(`DROP TABLE Cliente`)
