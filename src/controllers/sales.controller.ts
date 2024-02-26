@@ -65,7 +65,7 @@ export const createSale = async (req: Request,res: Response) => {
 
 		const [resultDetalleVenta] = await pool.query<ResultSetHeader>(
 			"INSERT INTO DetalleVenta (id_venta, id_producto, cantidad, precio_unitario) VALUES(?, ?, ?, ?)",
-			[id_venta,id_producto,cantidad,product.price]
+			[id_venta,id_producto,cantidad,product.precio]
 		)
 
 
